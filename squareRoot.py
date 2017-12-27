@@ -22,8 +22,9 @@ def sqrt(x,epsilon):
 # result=sqrt(float(input),0.0000001)
 # print "the square root of ",input," is ",result
 
-for i in range(0,130,2) :
-    result=sqrt(i,0.0000001);
-    print "the square root of ",i," is ",result
-print "测试中文支持！"
+if __name__ == "__main__":
+    for i in range(0,130,2) :
+        result=sqrt(i,0.0000001);
+        print "the square root of ",i," is ",result
+    print "测试中文支持！"
 
