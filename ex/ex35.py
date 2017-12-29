@@ -78,4 +78,6 @@ def start():
     else:
         dead("You stumble around the room until you strarve.")
 
-start()
+
+if __name__ == "__main__":
+    start()
