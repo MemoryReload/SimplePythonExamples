@@ -10,33 +10,42 @@ def get_name_with_path(pathname):
     return name
 
 
-
-#load module
+# load module
 def get_module_with_name(name):
-    module=None
+    module = None
     try:
-        #this is the important
+        # this is the important
         module = __import__(name)
     except ImportError:
         pass
     return module
 
-#load module content
+
+# load module content
 def get_content_with_module_name(name, content_list=[]):
     content = None
     try:
-        #this is the important
-        content = __import__(name, globals(), locals(),content_list)
+        # this is the important
+        content = __import__(name, globals(), locals(), content_list)
     except ImportError:
         pass
     return content
 
-print 'cwd: %r' % os.getcwd()
+
+# load module function
+def get_function_by_name(modulename, funcname):
+    mod = __import__(modulename)
+    return getattr(mod, funcname)
+
+
+func = get_function_by_name('squareRoot', 'sqrt')
+print func
+print "the square root of 5 is %r" % func(5, 0.0000001)
 
 # name = get_name_with_path('squareRoot.py')
 # print "name: %s" % name
 module = get_module_with_name('squareRoot')
-print "the square root of 2 is %r" % module.sqrt(2,0.0000001)
+print "the square root of 2 is %r" % module.sqrt(2, 0.0000001)
 
 # name = get_name_with_path('./ex')
 # print "name: %s" % name
@@ -44,14 +53,10 @@ print "the square root of 2 is %r" % module.sqrt(2,0.0000001)
 package = get_content_with_module_name('ex')
 print 'package content is %r' % package
 
-#if  the formlist not defined, package will be load
-package = get_content_with_module_name('ex.ex4')
+# if  the formlist not defined, package will be load
+package = get_content_with_module_name('ex.ex10')
 print 'package content is %r' % package
 
-#if the formlist defined, the ex4 module will be load
-module = get_content_with_module_name('ex.ex4',['anything'])
+# if the formlist defined, the ex4 module will be load
+module = get_content_with_module_name('ex.ex10', ['anything'])
 print 'module content is %r' % module
-
-#reload the module
-reload(module)
-
