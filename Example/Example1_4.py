@@ -1,11 +1,10 @@
-import glob, os
+import glob, os, sys
 
 
 def get_name_with_path(pathname):
     paths = glob.glob(pathname)
     path = paths[0]
     name = None
-    ext = None
     if path:
         name, ext = os.path.splitext(os.path.basename(path))
     return name
@@ -32,6 +31,7 @@ def get_content_with_module_name(name, content_list=[]):
         pass
     return content
 
+print 'cwd: %r' % os.getcwd()
 
 # name = get_name_with_path('squareRoot.py')
 # print "name: %s" % name
