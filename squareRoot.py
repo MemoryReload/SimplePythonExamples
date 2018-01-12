@@ -23,7 +23,7 @@ def sqrt(x,epsilon):
 # print "the square root of ",input," is ",result
 
 if __name__ == "__main__":
-    for i in range(0,130,2) :
+    for i in range(0,5,1) :
         result=sqrt(i,0.0000001);
         print "the square root of ",i," is ",result
     print "测试中文支持！"
