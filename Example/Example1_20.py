@@ -1,9 +1,15 @@
 NAME = "script.py"
+# BODY = """
+# prnt 'owl-stretching time'
+# """
 BODY = """
-prnt 'owl-stretching time'
+print 'the ant, an introduction'
 """
 
 try:
-    compile(BODY, NAME, 'exec')
+    code = compile(BODY, NAME, 'exec')
 except SyntaxError, v:
     print "syntac error:", v, "in", NAME
+
+print  code
+exec code
