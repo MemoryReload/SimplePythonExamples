@@ -26,6 +26,6 @@ def replace(file, search_for, replace_with):
 
 
 if __name__ == "__main__":
-    file = "~/Desktop/shabbyTest/test.txt"
+    file = "~/Desktop/test/test.txt"
     file = os.path.expanduser(file)
-    replace(file, "A", "B")
+    replace(file, "B", "C")

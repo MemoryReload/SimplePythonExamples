@@ -1,4 +1,6 @@
 import os
+
+
 def open(filename, mode="rb"):
     import __builtin__
     file = __builtin__.open(filename, mode)
@@ -6,6 +8,7 @@ def open(filename, mode="rb"):
         raise IOError, "not a GIF file"
     file.seek(0)
     return file
+
 
 if __name__ == "__main__":
     while True:

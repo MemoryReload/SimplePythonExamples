@@ -8,10 +8,11 @@ class HTTPError(Exception):
         return "<HTTPError for %s: %s %s>" % (self.url, self.errcode, self.url)
 
 
-try:
-    raise HTTPError("http://www.baidu.com", "404", "Not found")
-except HTTPError, error:
-    print "url => %s" % error.url
-    print "errcode => %s" % error.errcode
-    print "errmsg => %s" % error.errmsg
-    raise  # reraise exeption
+if __name__ == "__main__":
+    try:
+        raise HTTPError("http://www.baidu.com", "404", "Not found")
+    except HTTPError, error:
+        print "url => %s" % error.url
+        print "errcode => %s" % error.errcode
+        print "errmsg => %s" % error.errmsg
+        raise  # reraise exeption
