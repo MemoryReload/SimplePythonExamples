@@ -20,6 +20,8 @@ if __name__ == "__main__":
         path = os.path.abspath(path)
         if os.path.exists(path):
             break
+        else:
+            print("the file doesn't exist!")
 
     st = os.stat(path)
     print("stat {}".format(path))
@@ -27,6 +29,6 @@ if __name__ == "__main__":
 
     fp = open(path, "r")
     st = os.fstat(fp.fileno())
-    print("fstat".format(path))
+    print("fstat {}".format(path))
     dump(st)
     fp.close()
