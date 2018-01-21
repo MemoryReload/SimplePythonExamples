@@ -36,10 +36,10 @@ if __name__ == "__main__":
     outfile = os.path.abspath(outfile)
 
     copy_file(infile, outfile)
-    # copy_attrs(infile, outfile)
+    copy_attrs(infile, outfile)
     # 所有用户可读写
     # os.chmod(outfile,int("777",8))
-    os.chmod(outfile,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO)
+    # os.chmod(outfile,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO)
     #更多用户读写位控制见stat模块文档
 
     print("{} stat".format(infile))
