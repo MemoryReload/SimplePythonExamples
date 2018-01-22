@@ -2,17 +2,15 @@ import os
 import time
 
 pid = os.fork()
-# os.setpgrp()
 if pid:
-    print("the main process id is {}, gid is {}".format(os.getpid(), os.getgid()))
+    print("the main process euid is {}, gid is {}, id is {}, pgid is {}".format(os.geteuid(),os.getgid(), os.getpid(), os.getpgrp()))
     os._exit(0)  # kill original process
-print "daemon started, now change the gid of child process and let it become the leader process of a new group"
-print("the child process id is {}, original gid is {}".format(os.getpid(), os.getgid()))
-#success =  os.setpgrp()
-#success = os.setpgid(0,0)
-success = os.setpgid(0, os.getpid())
+print("the child process euid is {}, gid is {}, id is {}, original pgid is {}".format(os.geteuid(),os.getgid(),os.getpid(), os.getpgrp()))
+print "daemon started, now change the pgid of child process and let it become the leader process of a new group"
+success =  os.setpgrp()
+# success = os.setpgid(0, 0)
 if success:
     print "get some problem here"
-print("the child process id is {}, gid is {}".format(os.getpid(), os.getgid()))
+print("the child process euid is {}, gid is {}, id is {}, pgid is {}".format(os.geteuid(),os.getgid(),os.getpid(), os.getpgrp()))
 time.sleep(10)
 print "daemon terminated"
