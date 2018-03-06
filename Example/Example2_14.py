@@ -11,7 +11,7 @@ def mapfile(filename):
 
 data = mapfile("squareRoot.py")
 index = data.find("测试中文支持！")
-print data[index-10:index+30]
+print data[index-2:index+30]
 
 m = re.search("测试中文支持！",data)
 print m.start(), m.group()
